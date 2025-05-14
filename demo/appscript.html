@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Load React -->
+    <script src="https://unpkg.com/react@19/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@19/umd/react-dom.production.min.js"></script>
+    
+    <!-- Load your hosted component library -->
+    <script src="https://YOUR_USERNAME.github.io/cursor-components/index.appscript.js"></script>
+
+    <style>
+      /* Add any global styles here */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      // Your Apps Script function to handle button clicks
+      function handleButtonClick() {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            alert('Success: ' + result);
+          })
+          .withFailureHandler(function(error) {
+            alert('Error: ' + error);
+          })
+          .yourAppsScriptFunction();
+      }
+
+      // Create the React app
+      const App = () => {
+        return React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'h1',
+            null,
+            'My Apps Script App'
+          ),
+          React.createElement(
+            CursorComponents.Button,
+            {
+              onClick: handleButtonClick
+            },
+            'Run Apps Script Function'
+          )
+        );
+      };
+
+      // Render the app
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html> 
