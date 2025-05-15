@@ -6,7 +6,14 @@
       "outDir": "dist",
       "jsx": "react",
       "esModuleInterop": true,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "lib": ["dom", "dom.iterable", "esnext", "es2015"],
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noEmit": false,
+      "isolatedModules": true
     },
     "include": ["src"]
   }

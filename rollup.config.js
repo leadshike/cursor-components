@@ -38,7 +38,22 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      tsconfigOverride: {
+        compilerOptions: {
+          module: 'esnext',
+          target: 'es5',
+          lib: ['dom', 'dom.iterable', 'esnext', 'es2015'],
+          moduleResolution: 'node',
+          allowSyntheticDefaultImports: true,
+          strict: true,
+          forceConsistentCasingInFileNames: true,
+          noEmit: false,
+          isolatedModules: true
+        }
+      }
+    }),
     postcss(),
   ],
   external: ['react', 'react-dom'],
